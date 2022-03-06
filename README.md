@@ -1,8 +1,8 @@
 # ynov-tests-finalproject-vuecypressjest
 
 ##Front:
-  cd front
-  yarn
+	cd front
+ 	yarn
 	npm run serve
   
 	###Tests:
@@ -10,10 +10,10 @@
 		npx cypress open-ct
     
 ##Back:
-  cd back
+	cd back
 	yarn
-  node server.js
+	node server.js
   
-  ###Tests:
-    npm i -g jest
-    jest
+	###Tests:
+		npm i -g jest
+		jest
