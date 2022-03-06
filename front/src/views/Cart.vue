@@ -4,7 +4,7 @@
     <div class="cart">
       <div class="products">
         <h2>Produits :</h2>
-        <div class="products-grid" v-for="datas in data" :key="datas.id">
+        <div class="products-grid" v-for="datas in dataCart" :key="datas.id">
           <div>
             <img :src="datas.product_image" alt="">
           </div>
@@ -33,7 +33,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      data: '',
+      dataCart: '',
       totalPrice: 0
     }
   },
@@ -45,12 +45,12 @@ export default {
     }
   },
   mounted() {
-    // var vm = this
+    var vm = this
     axios.get('http://localhost:3000/cart/getCart')
       .then(response => {
-        this.data = response.data.response
-        for(var i=0; i<this.data.length; i++) {
-          this.totalPrice += this.data[i].product_price*this.data[i].product_quantity
+        vm.dataCart = response.data.response
+        for(var i=0; i<vm.dataCart.length; i++) {
+          this.totalPrice += this.dataCart[i].product_price*this.dataCart[i].product_quantity
         }
       })
   }

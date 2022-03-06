@@ -24,7 +24,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            apiDatas: null,
+            apiDatas: [],
             nbAddToCart: 1,
         }
     },
@@ -48,10 +48,10 @@ export default {
         axios.get('https://rickandmortyapi.com/api/character')
             .then( (response) => {
                 vm.apiDatas = response.data.results
-                vm.apiDatas.forEach(element => { 
+                for (const element of vm.apiDatas){ 
                     element.price = Math.floor(Math.random() * 40)
                     element.quantity = Math.floor(Math.random() * 20)
-                });
+                }
             })
     }
 }
